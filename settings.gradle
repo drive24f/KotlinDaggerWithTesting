@@ -1,0 +1,7 @@
+gradle.rootProject {
+    apply from: "${rootDir}/constants.gradle"
+}
+
+include ':app'
+
+
