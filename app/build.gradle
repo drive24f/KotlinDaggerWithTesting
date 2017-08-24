@@ -15,7 +15,6 @@ android {
         targetSdkVersion targetSdk
         versionCode 1
         versionName "1.0"
-//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner "com.franctan.kotlindagger.test_support.MockTestRunner"
     }
     buildTypes {
@@ -32,6 +31,7 @@ kapt {
 
 allOpen {
     annotation "com.franctan.kotlindagger.OpenClass"
+
 }
 
 dependencies {

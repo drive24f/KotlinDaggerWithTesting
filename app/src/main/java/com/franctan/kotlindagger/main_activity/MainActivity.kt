@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.franctan.kotlindagger.R
 import com.franctan.kotlindagger.navigation.Navigator
 import dagger.android.AndroidInjection
@@ -17,7 +18,10 @@ import javax.inject.Inject
 class MainActivity :
         AppCompatActivity()
         , HasSupportFragmentInjector
-{
+        , MainView {
+
+    private val TAG = this.javaClass.simpleName
+
     @Inject
     lateinit var mainActivityDependency: MainActivityDependency
 
@@ -60,7 +64,13 @@ class MainActivity :
 
     override fun onStart() {
         super.onStart()
-        message.text = mainActivityDependency.getDependencyName()
+        main_dependencies.text = mainActivityDependency.getDependencyNames()
+        mainActivityDependency.triggerDoSomething()
+    }
+
+
+    override fun doSomething() {
+        Log.v(TAG, "Do something")
     }
 
 }

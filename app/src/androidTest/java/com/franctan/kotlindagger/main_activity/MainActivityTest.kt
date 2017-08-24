@@ -7,7 +7,6 @@ import com.franctan.kotlindagger.R
 import com.franctan.kotlindagger.TestApp
 import com.franctan.kotlindagger.navigation.Navigator
 import com.franctan.kotlindagger.test_support.EspressoTestHelper
-import kotlinx.android.synthetic.main.activity_main.view.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -42,14 +41,15 @@ class MainActivityTest {
     }
 
     @Test
-    fun getDependencyName() {
+    fun check_mainActivityDependency() {
         val mockString = "hello world"
-        `when`(mainActivityDependency.getDependencyName()).thenReturn(mockString)
+        `when`(mainActivityDependency.getDependencyNames()).thenReturn(mockString)
         activityRule.launchActivity(null)
 
-        EspressoTestHelper.viewContainsText(R.id.message, mockString)
-
+        EspressoTestHelper.viewContainsText(R.id.main_dependencies, mockString)
+        verify(mainActivityDependency).triggerDoSomething()
     }
+
 
 
 }

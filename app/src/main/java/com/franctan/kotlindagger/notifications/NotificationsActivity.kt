@@ -10,29 +10,17 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class NotificationsActivity :
-        AppCompatActivity()
-{
+        AppCompatActivity() {
+
     companion object {
         fun getCallingIntent(context: Context): Intent {
             val intent = Intent(context, NotificationsActivity::class.java)
             return intent
         }
     }
-//    @Inject
-//    lateinit var mDependency: MainActivityDependency
-//
-//    @Inject
-//    lateinit var navigator: Navigator
 
     @Inject
     lateinit var notificationsActivityDependency: NotificationActivityDependency
-
-//    @Inject
-//    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
-
-//    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-//        return dispatchingAndroidInjector
-//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -42,7 +30,7 @@ class NotificationsActivity :
 
     override fun onStart() {
         super.onStart()
-        message.text = notificationsActivityDependency.getDependencyName()
+        main_dependencies.text = notificationsActivityDependency.getDependencyName()
     }
 
 }

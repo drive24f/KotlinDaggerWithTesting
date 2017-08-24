@@ -38,7 +38,7 @@ class DashboardFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        textView.text = mDashboardDependency.getDependencyName()
+        dashboard_fragment_dependencies.text = mDashboardDependency.getDependencyName()
     }
 
 }

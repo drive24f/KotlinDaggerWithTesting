@@ -7,22 +7,40 @@
     android:layout_height="match_parent"
     tools:context="com.franctan.kotlindagger.main_activity.MainActivity">
 
+
+
     <TextView
-        android:id="@+id/message"
+        android:id="@+id/activityId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_home"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Main Activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="10dp"
         />
+
+
+    <TextView
+        android:id="@+id/main_dependencies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main dependencies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityId"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.50"
+        android:padding="10dp"
+        />
+
 
     <FrameLayout
         android:id="@+id/frameContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="125dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

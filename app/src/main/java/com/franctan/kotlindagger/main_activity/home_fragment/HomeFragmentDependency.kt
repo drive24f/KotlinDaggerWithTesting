@@ -8,7 +8,8 @@ import com.franctan.kotlindagger.networking.NetworkingService
 
 @OpenClassOnDebug
 class HomeFragmentDependency(
-        private val networkingService: NetworkingService
+        private val homeView: HomeView
+        , private val networkingService: NetworkingService
         , private val sharedClass: SharedClass
 ) {
     fun getDependencyName(): String {

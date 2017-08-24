@@ -11,7 +11,13 @@ import dagger.Provides
 class HomeFragmentDependenciesModule {
     @Provides
     @FragmentScope
-    fun provideHomeFragmentDependency(networkingService: NetworkingService, sharedClass: SharedClass): HomeFragmentDependency {
-        return HomeFragmentDependency(networkingService, sharedClass)
+    fun provideHomeFragmentDependency(homeView: HomeView, networkingService: NetworkingService, sharedClass: SharedClass): HomeFragmentDependency {
+        return HomeFragmentDependency(homeView, networkingService, sharedClass)
+    }
+
+    @Provides
+    @FragmentScope
+    fun provideHomeView(homeFragment: HomeFragment): HomeView {
+        return homeFragment
     }
 }

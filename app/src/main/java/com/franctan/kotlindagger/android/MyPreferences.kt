@@ -5,11 +5,11 @@ import android.preference.PreferenceManager
 import com.franctan.kotlindagger.MyApp
 
 
-class MyPreferences {
+class MyPreferences constructor (app: MyApp) {
 
     private val prefs: SharedPreferences
 
-    constructor(app: MyApp) {
+    init {
         prefs = PreferenceManager.getDefaultSharedPreferences(app)
     }
 
@@ -20,5 +20,6 @@ class MyPreferences {
     fun getName(): String {
         return prefs.getString("name", "")
     }
+
 
 }

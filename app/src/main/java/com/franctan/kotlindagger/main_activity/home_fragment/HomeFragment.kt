@@ -3,15 +3,18 @@ package com.franctan.kotlindagger.main_activity.home_fragment
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.franctan.kotlindagger.R
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.dashboard_fragment.*
 import kotlinx.android.synthetic.main.home_fragment.*
 import javax.inject.Inject
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), HomeView {
+    private val TAG = this.javaClass.simpleName
 
     @Inject
     lateinit var mHomeDependency: HomeFragmentDependency
@@ -38,7 +41,12 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        textView.text = mHomeDependency.getDependencyName()
+        home_fragment_dependencies.text = mHomeDependency.getDependencyName()
+    }
+
+
+    override fun homeDoSomething() {
+        Log.v(TAG, "homeDoSomething")
     }
 }
 

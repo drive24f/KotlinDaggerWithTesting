@@ -8,12 +8,17 @@ import com.franctan.kotlindagger.networking.NetworkingService
 
 @OpenClassOnDebug
 class MainActivityDependency(
-        private val myPreferences: MyPreferences
+        private val mainView: MainView
+        , private val myPreferences: MyPreferences
         , private val sharedClass: SharedClass
         , private val networkingService: NetworkingService
 ) {
-    fun getDependencyName(): String {
-        return "${this.pretty()} - ${sharedClass.pretty()} - ${networkingService.pretty()}"
+    fun getDependencyNames(): String {
+        return "${mainView.pretty()} - ${myPreferences.pretty()} - ${this.pretty()} - ${sharedClass.pretty()} - ${networkingService.pretty()} "
+    }
+
+    fun triggerDoSomething() {
+        mainView.doSomething()
     }
 
 }
