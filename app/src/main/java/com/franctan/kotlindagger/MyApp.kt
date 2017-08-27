@@ -10,18 +10,11 @@ import javax.inject.Inject
 
 
 open class MyApp : Application(), HasActivityInjector {
-
     @Inject protected lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
-
         injectDagger()
-
-    }
-
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return dispatchingActivityInjector
     }
 
     open fun injectDagger() {
@@ -32,4 +25,7 @@ open class MyApp : Application(), HasActivityInjector {
                 .inject(this)
     }
 
+    override fun activityInjector(): AndroidInjector<Activity> {
+        return dispatchingActivityInjector
+    }
 }

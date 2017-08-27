@@ -44,7 +44,7 @@ class HomeFragmentTest {
 
         activityRule.activity.replaceFragment(homeFragment)
 
-        EspressoTestHelper.viewContainsText(R.id.textView, mockString)
+        EspressoTestHelper.viewContainsText(R.id.home_fragment_dependencies, mockString)
     }
 
 }

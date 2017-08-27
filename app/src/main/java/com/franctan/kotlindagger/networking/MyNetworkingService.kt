@@ -1,6 +1,6 @@
 package com.franctan.kotlindagger.networking
 
 
-interface NetworkingService {
+interface MyNetworkingService {
     fun getAll(): List<Int>
 }

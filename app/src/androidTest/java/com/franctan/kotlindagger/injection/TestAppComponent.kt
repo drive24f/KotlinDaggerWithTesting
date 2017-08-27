@@ -19,7 +19,6 @@ import javax.inject.Singleton
 (
         modules = arrayOf(
                 AndroidInjectionModule::class
-//                , TestAppModule::class
                 , ActivityFragmentTesterModule::class
                 , TestMainActivityModule::class
                 , TestMainActivityDependenciesModule::class
@@ -32,7 +31,6 @@ interface TestAppComponent {
     interface Builder {
         @BindsInstance
         fun application(application: TestApp): Builder
-
         fun build(): TestAppComponent
     }
 

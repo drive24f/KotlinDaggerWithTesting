@@ -8,11 +8,9 @@ import javax.inject.Singleton
 
 @Module
 class AndroidModule {
-
     @Provides
     @Singleton
     fun providePreferences(myApp: MyApp): MyPreferences {
         return MyPreferences(myApp)
     }
-
 }

@@ -3,7 +3,7 @@ package com.franctan.kotlindagger.main_activity
 import java.util.*
 
 
-class SharedClass constructor() {
+class CommonClass constructor() {
 
     val random: Int
 

@@ -14,7 +14,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf(
         AndroidInjectionModule::class
-        , AppModule::class
         , NetworkingModule::class
         , AndroidModule::class
         , MainActivityModule::class
@@ -25,10 +24,7 @@ interface AppComponent {
     interface Builder {
         @BindsInstance
         fun application(myApp: MyApp): Builder
-
         fun build(): AppComponent
     }
-
-    fun myApp(): MyApp
     fun inject(myApp: MyApp)
 }

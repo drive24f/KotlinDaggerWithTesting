@@ -1,7 +1,7 @@
 package com.franctan.kotlindagger.main_activity.injection
 
 import com.franctan.kotlindagger.main_activity.MainActivityDependency
-import com.franctan.kotlindagger.main_activity.SharedClass
+import com.franctan.kotlindagger.main_activity.CommonClass
 import com.franctan.kotlindagger.main_activity.dashboard_fragment.DashboardFragmentDependency
 import com.franctan.kotlindagger.main_activity.home_fragment.HomeFragmentDependency
 import com.franctan.kotlindagger.navigation.Navigator
@@ -26,13 +26,11 @@ class TestMainActivityDependenciesModule {
         return mock(Navigator::class.java)
     }
 
-
     @Singleton
     @Provides
-    fun provideSharedClass(): SharedClass {
-        return mock(SharedClass::class.java)
+    fun provideSharedClass(): CommonClass {
+        return mock(CommonClass::class.java)
     }
-
 
     @Singleton
     @Provides

@@ -31,6 +31,21 @@ class MainActivity :
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        navigator.openHomeFragment()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        main_dependencies.text = mainActivityDependency.getDependencyNames()
+        mainActivityDependency.triggerDoSomething()
+    }
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
@@ -51,21 +66,6 @@ class MainActivity :
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
         return dispatchingAndroidInjector
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        navigator.openHomeFragment()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        main_dependencies.text = mainActivityDependency.getDependencyNames()
-        mainActivityDependency.triggerDoSomething()
     }
 
 
