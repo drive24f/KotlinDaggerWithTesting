@@ -1,7 +1,7 @@
 package com.franctan.kotlindagger
 
-import com.franctan.kotlindagger.injection.DaggerTestAppComponent
-import com.franctan.kotlindagger.injection.TestAppComponent
+import com.franctan.kotlindagger.injection.app.DaggerTestAppComponent
+import com.franctan.kotlindagger.injection.app.TestAppComponent
 
 
 class TestApp : MyApp() {

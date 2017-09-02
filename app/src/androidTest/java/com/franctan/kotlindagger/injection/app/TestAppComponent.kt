@@ -1,18 +1,17 @@
-package com.franctan.kotlindagger.injection
+package com.franctan.kotlindagger.injection.app
 
 import com.franctan.kotlindagger.TestApp
 import com.franctan.kotlindagger.main_activity.MainActivityTest
-import com.franctan.kotlindagger.main_activity.dashboard_fragment.TestDashboardFragmentModule
+import com.franctan.kotlindagger.main_activity.dashboard_fragment.DashboardFragmentTest
 import com.franctan.kotlindagger.main_activity.home_fragment.HomeFragmentTest
-import com.franctan.kotlindagger.main_activity.home_fragment.TestHomeFragmentModule
-import com.franctan.kotlindagger.main_activity.injection.TestMainActivityDependenciesModule
 import com.franctan.kotlindagger.main_activity.injection.TestMainActivityModule
+import com.franctan.kotlindagger.notifications_activity.NotificationsActivityTest
+import com.franctan.kotlindagger.notifications_activity.injection.TestNotificationsActivityModule
 import com.franctan.kotlindagger.test_support.activity_support.ActivityFragmentTesterModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
-
 
 @Singleton
 @Component
@@ -21,9 +20,7 @@ import javax.inject.Singleton
                 AndroidInjectionModule::class
                 , ActivityFragmentTesterModule::class
                 , TestMainActivityModule::class
-                , TestMainActivityDependenciesModule::class
-                , TestDashboardFragmentModule::class
-                , TestHomeFragmentModule::class
+                , TestNotificationsActivityModule::class
 
         ))
 interface TestAppComponent {
@@ -36,5 +33,7 @@ interface TestAppComponent {
 
     fun inject(app: TestApp)
     fun inject(testActivity: MainActivityTest)
+    fun inject(testActivity: NotificationsActivityTest)
     fun inject(test: HomeFragmentTest)
+    fun inject(test: DashboardFragmentTest)
 }

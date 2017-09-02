@@ -30,7 +30,7 @@ class NotificationsActivity :
 
     override fun onStart() {
         super.onStart()
-        main_dependencies.text = notificationsActivityDependency.getDependencyName()
+        main_dependencies.text = notificationsActivityDependency.getDependencyNames()
     }
 
 }

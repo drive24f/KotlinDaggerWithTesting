@@ -18,7 +18,6 @@ public class MockTestRunner extends AndroidJUnitRunner {
   @Override
   public Application newApplication(ClassLoader cl, String className, Context context)
       throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-    System.out.println("FTK: MockTestRunner newApplication");
     return super.newApplication(cl, TestApp.class.getName(), context);
   }
 }
